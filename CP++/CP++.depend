@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1562370974 source:c:\users\andregoro\desktop\fortran\cp++\main.cpp
+	<iostream>
+	"templetes.cpp"
+	"classes.cpp"
+	"operador.cpp"
+	<new>
+	"trys.cpp"
+	"virtuals.cpp"
+
+1562109268 source:c:\users\andregoro\desktop\fortran\cp++\templetes.cpp
+	<iostream>
+
+1562109268 c:\users\andregoro\desktop\fortran\cp++\templetes.cpp
+	<iostream>
+
+1561424705 c:\users\andregoro\desktop\fortran\cp++\classes.cpp
+
+1561947326 source:c:\users\andregoro\desktop\fortran\cp++\operador.cpp
+	<iostream>
+
+1561947326 c:\users\andregoro\desktop\fortran\cp++\operador.cpp
+	<iostream>
+
+1562112793 source:c:\users\andregoro\desktop\fortran\cp++\virtuals.cpp
+	<iostream>
+
+1562112793 c:\users\andregoro\desktop\fortran\cp++\virtuals.cpp
+	<iostream>
+
+1562370995 source:c:\users\andregoro\desktop\fortran\cp++\trys.cpp
+	<iostream>
+
+1562370995 c:\users\andregoro\desktop\fortran\cp++\trys.cpp
+	<iostream>
+
+1562284962 source:c:\users\andregoro\desktop\fortran\cp++\cast.cpp
+	<iostream>
+
+1562370596 source:c:\users\andregoro\desktop\fortran\cp++\dinamica.cpp
+

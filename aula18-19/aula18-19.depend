@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1514136988 source:c:\users\andregoro\desktop\fortran\aula18-19\main.f95
+
+1514136974 source:c:\users\andregoro\desktop\fortran\aula18-19\main.c
+	<stdio.h>
+	<stdlib.h>
+
