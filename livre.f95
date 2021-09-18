@@ -1,137 +1,275 @@
-! subroutine name
+program tuto
+  implicit none
+  !call data_types()
+  !call Operators()
+  !call Decisions()
+  call Dynamic_Arrays()
+end program tuto
 
-!    implicit none
-!     !t
-!     ! integer(king=2) :: shortval
 
-!        !four byte integer
-!    integer(kind = 4) :: longval
+subroutine data_types()
+implicit none
+  logical :: done
+  integer ::largeval
+  ! print *,huge(largeval)
 
-!    !eight byte integer
-!    integer(kind = 8) :: verylongval
+  integer(kind=2)::shortval
+  
+  integer(kind=4)::longval
 
-!    !sixteen byte integer
-! !    integer(kind = 16) :: veryverylongval
+  integer(kind=8)::verylongval
 
-!     ! print *,huge(shortval)
-!     print *,huge(longval)
-!     print  *,huge(verylongval)
+  integer(kind=16)::veryverylongval
 
-! end subroutine name
+  integer::defval
 
-! subroutine escolha
-!        integer :: a = 10
+  character(len=40)::nome
 
-!    ! check the logical condition using if statement
-!    if (a < 20 ) then
+   real::float
+   float =10
+   print *,float 
+   print *,nome
+   print *, huge(shortval)
+   print *, huge(longval)
+   print *, huge(verylongval)
+   print *, huge(veryverylongval)
+   print *, huge(defval)
+   print *,done
+end subroutine data_types
 
-!    !if condition is true then print the following
-!    print*, "a is less than 20"
-!    end if
-! end subroutine escolha
+subroutine Operators()
+implicit none
+  print *," 1 .le. 5 ",1 .le. 5
+  print *,".not. 1 .le. 5 ",.not. 1 .le. 5
+end subroutine Operators
 
-! subroutine intent_example (a, b, c, d)
+!if-else if-else Construct
+subroutine Decisions()
+   implicit none
+  integer :: a
+  character(len=2)::g
+ 
+  g = 'B'
+  a=100
+
+  if (a == 10) then
+      print*,"10"
+  else if(a .eq. 20) then
+      print*,"20"
+  else
+      print*,"100"  
+  end if
+
+   select case (g)
+   
+      case ('A') 
+      print*, "Excellent!" 
+
+      case ('B')
+      
+      case ('C') 
+         print*, "Well done" 
+
+      case ('D')
+         print*, "You passed" 
+
+      case ('F')
+         print*, "Better try again" 
+
+      case default
+         print*, "Invalid grade" 
+      
+   end select
+
+end subroutine Decisions
+
+subroutine Nested_Loops()
+   implicit none
+   integer::i,j,k,n
+   n=1
+   iloop: do i = 1, 3      
+      jloop: do j = 1, 3         
+         kloop: do k = 1, 3              
+         
+            print*, "(i, j, k): ", i, j, k               
+            
+         end do kloop       
+      end do jloop
+   end do iloop
+!-====================================================
+   do while (n <=10)
+      n = n + 1
+      print*,n
+   end do
+!=====================================================
+   do n=1,10
+      print*,n
+   end do
+end subroutine Nested_Loops
+
+subroutine Arrays()
+implicit none
+real::vetor(5)
+integer::matriz(3,3),i,j,k
+
+ print*,"vetor"
+ do i=1,5
+   vetor(i)=i*10
+  end do
+ do i=1,5
+   print*,vetor(i)
+ end do
+ print*,"matriz"
+ do i=1,3
+   do j=1,3
+      matriz(i,j)=i+j
+   end do
+  end do
+ do i=1,3  
+   do j=1,3
+      print*,matriz(i,j)
+   end do
+ end do
+end subroutine Arrays
+
+subroutine Dynamic_Arrays()
+ implicit none
+ integer,dimension(:),allocatable ::vetor 
+   allocate(vetor(2))
+   vetor(0)=1
+   vetor(1)=2
+   vetor(2)=3
+   print*,vetor(0)
+   print*,vetor(1)
+   print*,vetor(2)
+
+end subroutine Dynamic_Arrays
+subroutine Derived_Data_Types()
+   implicit none
+   type struct
+      integer::num
+   end type
+   type(struct)est
+   est%num=10
+
+   print*,est%num
+
+   ! !declaring array of books
+   ! type(Books), dimension(2) :: list 
+    
+   ! !accessing the components of the structure
+   
+   ! list(1)%title = "C Programming"
+   ! list(1)%author = "Nuha Ali"
+   ! list(1)%subject = "C Programming Tutorial"
+   ! list(1)%book_id = 6495407 
+   
+   ! list(2)%title = "Telecom Billing"
+   ! list(2)%author = "Zara Ali"
+   ! list(2)%subject = "Telecom Billing Tutorial"
+   ! list(2)%book_id = 6495700
+  
+   ! !display book info
+   
+   ! Print *, list(1)%title 
+   ! Print *, list(1)%author 
+   ! Print *, list(1)%subject 
+   ! Print *, list(1)%book_id  
+   
+   ! Print *, list(1)%title 
+   ! Print *, list(2)%author 
+   ! Print *, list(2)%subject 
+   ! Print *, list(2)%book_id 
+
+end subroutine Derived_Data_Types
+subroutine Pointers()
+   implicit none
+   integer,pointer::p1
+   allocate(p1)
+   p1=1
+   Print*,p1
+
+   p1=p1+4
+   Print*,p1
+
+
+end subroutine Pointers
+subroutine Basic_Input_Output()
+implicit none
+integer::num
+read*,num
+print*,num
+end subroutine Basic_Input_Output
+
+! subroutine File_Input_Output()
 ! implicit none
 
-!    ! dummy arguments
-!    real, intent (in) :: a
-!    real, intent (in) :: b
-!    real, intent (in) :: c
-!    real, intent (out) :: d
+! real,dimension(10)::x,y
+! integer :: i
 
-!    d = b * b - 4.0 * a * c
+! do i = 0, 10
+!    x(i)=i*0.1
+! end do
+!    ! output data into a file 
+!    open(1, file = 'data1.dat', status = 'new')  
+!    do i=1,100  
+!       write(1,*) x(i), y(i)   
+!    end do  
+!    close(1) 
+! end subroutine File_Input_Output
 
-! end subroutine intent_example
-subroutine s(n)
-  implicit none
-  integer, intent (in) :: n
-  integer::b,c
-  integer,dimension(:),allocatable::num2! dinamico
-  allocate(num2(n))
- ! call system('cls')
+function calling_func() result(retval)
+   implicit none
+   integer :: retval,i
+   
+   i=10
+   retval=10+i
 
-  do b = n-(n-1), n
-    print*,"Digite um numero ",b
-    read*,num2(b)
-    call system('cls')
-  end do
+end function calling_func
 
-  do c=n-(n-1),n
-    print*,"Numero um ",num2(c)
-  end do
-end subroutine s
-subroutine sw()
-  implicit none
-  integer::a,n
-  character ss*20
-  integer,dimension(5)::num!statico
-  a=0
+!module
+subroutine Intrinsic_Functions()
+implicit none
+real :: a,b
+complex ::z
+a=15.232
+b=-20.5467
 
-  do while(ss .ne. "nao")
-      print*,"Digite um tamanho"
-      read*,n
-      call s(n)
-      print*,"continuar ? \n sim ou nao"
-      read*,ss
-  end do
-  !print*,a
+write(*,*)'abs',abs(a)
+write(*,*)'aint',aint(a)
+write(*,*)'ceiling',ceiling(a)
+write(*,*)'floor',floor(a)
 
-  ! do a = 1, 5
-  !    ! print*,a
-  !     num(a)=a
-  !     if (a .eq. 5) then
-  !         exit
-  !     end if
-  ! end do
-  ! a=1
-  ! do while(a .lt. 5)
-  !     print*,num(a)
-  !     a=a+1
-  ! end do
-end subroutine sw
-program livre
+z=complex(a,b)
+write(*,*) 'z',z
+
+end subroutine Intrinsic_Functions 
+
+subroutine Numeric_Precision()
 implicit none
 
-! real,dimension(126)::x,y
-! real,dimension(126)::p,q
+real(kind=4)::a,b,c
+real(kind=8)::e,f,g
+integer(kind=2)::i,j,k
+integer(kind = 4) :: l, m, n
+integer::kind_a, kind_i, kind_e, kind_l
 
-! do i=1,100
-!   x(i)=i*0.1
-!   y(i)=sin(x(i))*(1-cos(x(i)/3.0))
-! end do
+kind_a=kind(a)
+kind_i=kind(i)
+kind_e=kind(e)
+kind_l=kind(l)
+   print *,'default kind for real is', kind_a
+   print *,'default kind for int is', kind_i
+   print *,'extended kind for real is', kind_e
+   print *,'default kind for int is', kind_l
 
-! open(1,file='data1.dat',status='new')
+end subroutine Numeric_Precision
 
-! do i=1,100
-!   write(1,*) x(i),y(i)
-! end do
+subroutine Programming_Style()
+implicit none
+real :: x ,z
 
-! close(1)
-!=================================================================================================
-! open(2,file='data1.dat',status='old')
-
-! do i=1,100
-!   read(2,*) p(i),q(i)
-! end do
-
-! close(2)
-
-! do i = 1,100
-!    write(*,*) p(i), q(i)
-! end do
-
-! do i = 1,126
-!   write(*,*) p(i), q(i)
-! end do
-! print*,"fim"
-
-type st
-integer(kind=8)::n
-end type st
-
-type(st)::s
-  s%n=10
-print*,s%n
-
-
-end program livre
+if (x >= 0.0) then
+   z=sqrt(x)
+end if
+end subroutine Programming_Style
